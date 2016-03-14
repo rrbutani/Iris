@@ -18,8 +18,7 @@ macOSX()
    xcode-select --install #For fun!
    sudo port install python34 py34-pip py34-virtualenv
    sudo port select --set python3 python34
-   sudo port select --set pip3 py34-pip
-   sudo port select --set virtualenv py34-virtualenv
+   alias virtualenv='virtualenv-3.4'
 }
 
 linux()
