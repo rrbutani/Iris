@@ -1,0 +1,17 @@
+#!/bin/sh
+#
+# A pre-commit hook that dumps a list of packages required by the 
+# application at the time of commit using 'pip freeze'. This is 
+# essentially a way to avoid committing the entire venv.
+#
+# Created, edited, and tested on: March 14th, 2016.
+
+DATE=#"$(date)"
+BASEPATH=$(git rev-parse --show-toplevel)
+
+pip3 freeze > "$BASEPATH"/requirements.txt
+echo $DATE >> "$BASEPATH"/requirements.txt
+
+git add "$BASEPATH"/requirements.txt
+
+echo -e "\e[96mRequirements.txt updated."
