@@ -1,6 +1,9 @@
 # Python Virtual Environment Directory
 venv/
 
+# Install Log from install.sh
+install-log.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
