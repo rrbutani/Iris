@@ -1,0 +1,68 @@
+Functionality that the Application should have:
+	- Be network controllable
+	- Have support for multiple light strips/segments
+	- Have support for different light effects w/parameters
+		- Ex: set color, duration, speed, etc. 
+
+
+REST API setup:
+	* all api functions under /api/
+	- /api/effects/{effect_name}
+		> index is json list of effects
+		> if effect_name is specified, give details for that effect
+			- ex: parameters + description text if available.
+
+	- /api/status/{light_strip}
+		> index page is all strips: strip name + current effect
+		> if light_strip is specified (name), give same information + duration left + user who set + priority?, but only for that strip.
+
+	- /api/strips/{strip_id}
+		> index page is all strips: strip id + strip name
+		> if strip_id is specified (id), give same information + length of strip + access location, but only for that strip
+
+	- /api/set/{effect_name}
+		> no index page
+		> using specified effect_name, take the following params:
+			+ uid
+			+ auth_token?
+			+ priority (optional)
+			+ id(s) to set lights on
+			+ duration (optional, also we're not having a queue)
+			+ params for that effect
+			> and return ids of lights set to turn on
+
+System Design:
+
+	Effects: A directory of modules or classes that are loaded into an array when the application first starts
+		each module should have a function that can, when specified with a length of pixels, run the effect on those pixels.
+			or it can call a C function to do it..
+
+	Light Strips: Loaded from a json config file at application start time. Here's the hierarchy:
+		- Light Device: 1 address (ex: SPI)
+			-Light Strip(s): specify pixels on the strip, ex: 1 to 90
+				* Also has name..
+
+	User IDs/Auth Tokens: Also loaded from a json config file at application start
+
+	At application start, the following data is loaded:
+
+			users + auth keys >>> hashmap
+			light strips      >>> list of objects
+			effects           >>> loaded, added to hashmap list (name : function/module?)
+
+	There's a global array of light values that's the size of all the pixels in the system.
+
+	Then, an array of LED_Device_Runners is created based on the number of devices in the light strip json file that was loaded.
+	#Each LED_Device_Runner should have x number of threads of its own where x is the number of strips on that device. (in scenarios where multiple segments are being addressed by a single effect, make the threads null or something)
+
+	Each LED_Device_Runner should have a separate thread that, every so often (determined by refresh rate which should be in config?), calls a C function that takes the part of the global array of light values belonging to it and dumps them out to it's strip.
+
+	Then there's a global array of threads for the effects that are running and some kind of a state system for which segments are currently being addressed.
+
+	An array of light segments should be created just for the purpose of that api call..
+
+	When an effect call is made, the segment control system is consulted, and the thread is added to the array and is run.
+
+
+
+
