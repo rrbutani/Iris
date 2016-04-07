@@ -4,8 +4,8 @@ The network -> lights/LEDs part of the project.
 
 ### Setup ###
 *	For Development Environments:
-	1.	Run dev-install.sh (in the [_scripts_](/scripts/) folder) to install the needed packages and setup the Python virtual environment.
-	2.	Copy the pre-commit hook script (in the [_scripts_](/scripts/) folder) to .git/hooks. More information [here](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks#Client-Side-Hooks)
+	1.	Run dev-install.sh (in the [_scripts_](/Iris>LightServer/scripts/) folder) to install the needed packages and setup the Python virtual environment.
+	2.	Copy the pre-commit hook script (in the [_scripts_](/Iris>LightServer/scripts/) folder) to .git/hooks. More information [here](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks#Client-Side-Hooks)
 	3.	???
 *	For Production Environments:
 	1.	Run the prod-install.sh script (To Be Written...) to build and install the LightServer.
