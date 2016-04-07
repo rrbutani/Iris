@@ -9,6 +9,6 @@ The steps and scripts included below are largely borrowed from Rahul Rameshbabu'
 2.	Update /etc/network/interfaces to match the file provided.
 3.	Update the isc dhcp server config file.
 4.	Update the isc dhcp interfaces line.
-5.	Run the install script to move the python file to the appropriate location and install the systemd service.
+5.	Run the install script to move the python file to the appropriate location and install the systemd service. (TO BE WRITTEN)
 6.	Add your devices using bluetoothctl. (pair + trust)
 7.	Fin.

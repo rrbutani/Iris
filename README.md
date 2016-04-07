@@ -22,3 +22,5 @@ Iris is a multipart project. Here are its parts:
 	*	Internally known as the blackhole. Keep it neat though.
 
 Each part of the project has it's own README and setup instructions.
+
+_For the curious, the name Iris was choosen because Iris is the goddess of rainbows (lights!) and communication, which are the two main parts of this project. Also because of sleep deprivation™._
