@@ -39,6 +39,9 @@ windows()
   echo "OS Detected: DOS. Err..Windows"
   echo "Setup for Windows not implemented at this time."
   echo "I pity your soul..."
+  echo "..."
+  echo "Actually, with the recent Windows 10 announcement... there may be hope for you yet!"
+  echo "Watch this space."
 }
 #Creds to SO: http://bit.ly/1pHeRRa
 if [ "$(uname)" == "Darwin" ]; then
