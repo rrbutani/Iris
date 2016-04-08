@@ -1,11 +1,12 @@
 #!/bin/sh
 #Must run in the root directory of the project!!!
+LOG_PATH=install-log.txt
 
 common()
 {
   . venv/bin/activate
   echo "Installing required packages.."
-  sudo pip -q install -r requirements.txt >> install-log.txt
+  sudo pip -q install -r requirements.txt >> $LOG_PATH
   echo "Finished!"
 }
 
@@ -19,8 +20,8 @@ macOSX()
   alias virtualenv='virtualenv-3.4'
 
   echo "Creating virtual environment"
-  virtualenv-3.4 --no-site-packages --distribute venv >> install-log.txt
-  virtualenv-3.4 --relocatable venv >> install-log.txt
+  virtualenv-3.4 --no-site-packages --distribute venv >> $LOG_PATH
+  virtualenv-3.4 --relocatable venv >> $LOG_PATH
 }
 
 linux()
@@ -30,8 +31,8 @@ linux()
   sudo apt-get install python3 python3-pip python3-dev virtualenv -qq
 
   echo "Creating virtual environment"
-  virtualenv --no-site-packages --distribute  venv >> install-log.txt
-  virtualenv --relocatable venv >> install-log.txt
+  virtualenv --no-site-packages --distribute  venv >> $LOG_PATH
+  virtualenv --relocatable venv >> $LOG_PATH
 }
 
 windows()
