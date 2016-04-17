@@ -8,7 +8,7 @@ clockpin  = 19
 strip	  = Adafruit_DotStar(numpixels, datapin, clockpin)
 
 try:
-	strip.setBrightness(14)
+#	strip.setBrightness(14)
 	strip.begin()
 except:
 	print 'idjit'
