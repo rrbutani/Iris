@@ -20,4 +20,4 @@ def effect_handler(effect_name):
 		return effect_name + ' - no luck'
 
 if __name__ == '__main__' :
-	app.run()
+	app.run(host='0.0.0.0', port=80)

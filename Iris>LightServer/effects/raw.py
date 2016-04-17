@@ -1,6 +1,6 @@
 def info():
-	print "Hai"
+	print("Hai")
 
 def run(strip, params):
-	print "Hai2"
-	print vars(params)
+	print("Hai2")
+#	print vars(params)
