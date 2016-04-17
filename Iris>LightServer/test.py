@@ -1,5 +1,6 @@
-from flask import Flask
+from flask import Flask, request
 import effects
+import lights
 
 app = Flask(__name__)
 
@@ -13,7 +14,8 @@ def hello_world():
 def effect_handler(effect_name):
 	if(hasattr(effects, effect_name)):
 		getattr(effects, effect_name).info()
-		return 'idiot'
+		getattr(effects, effect_name).run(lights.strip, request.args)
+		return effect_name + 'idiot'
 	else:
 		return effect_name + ' - no luck'
 
