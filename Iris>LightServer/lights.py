@@ -7,4 +7,7 @@ datapin   = 26
 clockpin  = 19
 strip	  = Adafruit_DotStar(numpixels, datapin, clockpin)
 
-strip.begin()
+try:
+	strip.begin()
+except:
+	print 'idjit'

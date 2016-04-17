@@ -4,6 +4,8 @@ def info():
 def run(strip, params):
 	print "Hai2"
 	print vars(params)
-	for i in range(0, strip.numPixels):
-		strip.set(i, 0x00FFFFFF)
-	strip.show()
+#	print vars(strip)
+	for i in range(0, strip.numPixels()):
+		strip.setPixelColor(i, strip.getPixelColor(i) + 10)
+		print i
+		strip.show()

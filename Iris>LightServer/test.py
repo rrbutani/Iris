@@ -2,6 +2,12 @@ from flask import Flask, request
 import effects
 import lights
 
+print lights.strip.numPixels()
+
+for i in range(0, lights.strip.numPixels()):
+	lights.strip.setPixelColor(i, 0xFF0000)
+	lights.strip.show()
+
 app = Flask(__name__)
 
 effects.raw.info()
